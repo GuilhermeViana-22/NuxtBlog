@@ -14,6 +14,9 @@
     "@heroicons/vue": "^2.2.0",
     "animate.css": "^4.1.1",
     "axios": "^1.8.4",
+    "pinia": "^3.0.2",
+    "prismjs": "^1.30.0",
+    "quill": "^2.0.3",
     "sweetalert2": "^11.17.2",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"

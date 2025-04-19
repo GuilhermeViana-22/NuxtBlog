@@ -97,7 +97,10 @@
   </template>
   
   <script>
+import api from '@/services/api' // Importando o serviço de API para fazer requisições
+
 export default {
+  
     data() {
       return {
         email: 'gguicido.viana@gmail.com', // Substitua pelo email real
@@ -158,20 +161,29 @@ export default {
           }
         }
       },
-      verifyCode() {
+      async verifyCode() {
         if (!this.isCodeComplete) {
           this.error = 'Por favor, preencha todos os dígitos'
           return
         }
         
         this.isVerifying = true
-        // Simulação de verificação
-        setTimeout(() => {
-          this.isVerifying = false
+        this.isVerifying = false
           const code = this.digits.join('')
-          // Aqui você faria a verificação real do código
-          console.log('Código verificado:', code)
-        }, 1500)
+         
+          // Simulação de sucesso ou falha na verificação
+          try{
+            const apiResponse = await api.post('verifycode', { code })
+
+            const token = apiResponse.data.token
+            localStorage.setItem('token', token)
+            this.$router.push('/')
+          } catch (error) {
+            this.error = 'Código inválido ou expirado. Tente novamente.'
+            console.error('Erro na verificação:', error)
+          } finally {
+            this.isVerifying = false
+          }
       },
       resendCode() {
         if (this.isResending || this.countdown > 0) return

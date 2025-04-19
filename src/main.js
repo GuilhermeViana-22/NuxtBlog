@@ -3,7 +3,9 @@ import App from './App.vue'
 import router from './router'
 import './assets/css/main.css'
 import 'animate.css'
+import {createPinia} from 'pinia'
 
 createApp(App)
+  .use(createPinia())
   .use(router)
   .mount('#app')
