@@ -9,6 +9,7 @@ const Login = () => import('@/views/Login.vue')
 const Forgot = () => import('@/views/Forgot.vue')
 const VerifyEmail = () => import('@/views/VerifyEmail.vue')
 const Perfil = () => import('@/views/Perfil.vue')
+const Post = () => import('@/components/post/Post.vue')
 const NovoPost = () => import('@/views/NovoPost.vue')
 
 const routes = [
@@ -52,7 +53,14 @@ const routes = [
     path: '/novo-post',
     name: 'novo-post',
     component: NovoPost,
-    meta: { requiresAuth: true }
+    meta: { public: true }
+  },
+
+    {
+    path: '/post/:id',
+    name: 'post',
+    component: Post,
+    meta: { public: true }
   }
 ]
 
