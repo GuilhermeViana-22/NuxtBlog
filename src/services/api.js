@@ -4,7 +4,7 @@ import { HTTP_CODES, HTTP_MESSAGES } from '@/components/constants/httpCodes.js'
 
 // Configuração base da API
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8001/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
