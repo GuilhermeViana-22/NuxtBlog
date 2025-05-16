@@ -104,7 +104,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import api from '@/services/api'
 import Sobre from '@/components/Sobre.vue'
 
 export default {
@@ -133,7 +133,7 @@ export default {
     async fetchPosts() {
       this.loading = true
       try {
-        const response = await axios.get('http://127.0.0.1:8001/api/post')
+        const response = await api.get('/post')
         if (response.data && Array.isArray(response.data.posts)) {
           this.posts = response.data.posts
         } else {

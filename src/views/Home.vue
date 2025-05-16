@@ -7,6 +7,7 @@ import Footer from './Footer.vue';
   <div class="relative">
      <Navbar />
      <Conteudo />
+      <Footer />
 
   </div>
 </template>
